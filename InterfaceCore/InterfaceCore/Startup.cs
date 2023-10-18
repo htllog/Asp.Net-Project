@@ -1,3 +1,6 @@
+using Autofac;
+using InterfaceCore.Core;
+
 namespace InterfaceCore;
 
 public class Startup
@@ -12,6 +15,11 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllers();
+    }
+
+    public void ConfigureContainer(ContainerBuilder builder)
+    {
+        builder.RegisterModule(new ApplicationModule(typeof(ApplicationModule).Assembly));
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

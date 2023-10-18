@@ -4,5 +4,5 @@ public interface IUnitOfWork
 {
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     
-    bool ShouldSaveChange { get; set; }
+    bool ShouldSaveChanges { get; set; }
 }

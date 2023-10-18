@@ -19,6 +19,10 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\InterfaceCore.Message\InterfaceCore.Message.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
         <EmbeddedResource Include="Dbup\Scripts\Script001_initial_msg_tables.sql" />
         <EmbeddedResource Include="Dbup\Scripts\Script002_add_msg_tables_remark_column.sql" />
     </ItemGroup>

@@ -1,7 +1,7 @@
 using System.Reflection;
 using InterfaceCore.Core.Domain;
-using InterfaceCore.Core.Setting.System;
 using Microsoft.EntityFrameworkCore;
+using InterfaceCore.Core.Setting.System;
 
 namespace InterfaceCore.Core.Data;
 
@@ -18,11 +18,11 @@ public class ApplicationDbContext : DbContext, IUnitOfWork
     {
         optionsBuilder.UseMySql(_connectionString.Value, new MySqlServerVersion(new Version(5, 7, 0)));
     }
-
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         typeof(ApplicationDbContext).GetTypeInfo().Assembly.GetTypes()
-            .Where(t => typeof(IEnity).IsAssignableFrom(t) && t.IsClass).ToList()
+            .Where(t => typeof(IEntity).IsAssignableFrom(t) && t.IsClass).ToList()
             .ForEach(x =>
             {
                 if (modelBuilder.Model.FindEntityType(x) == null)
@@ -30,5 +30,5 @@ public class ApplicationDbContext : DbContext, IUnitOfWork
             });
     }
     
-    public bool ShouldSaveChange { get; set; }
+    public bool ShouldSaveChanges { get; set; }
 }
