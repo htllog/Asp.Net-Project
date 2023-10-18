@@ -6,5 +6,5 @@ public class GetUserDto
     
     public string Name { get; set; }
     
-    public DateTime? CreateAt { get; set; }
+    public DateTime? CreatedAt { get; set; }
 }

@@ -9,8 +9,9 @@ public class User : IEntity
     [Key]
     public int Id { get; set; }
     
+    [Required]
     public string Name { get; set; }
     
-    [Column("createdAt")]
+    [Column("created_at")]
     public DateTime CreatedAt { get; set; }
 }
