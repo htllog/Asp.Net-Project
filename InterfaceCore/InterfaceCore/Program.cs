@@ -1,3 +1,4 @@
+using Autofac.Extensions.DependencyInjection;
 using InterfaceCore;
 using InterfaceCore.Core.Dbup;
 using InterfaceCore.Core.Setting.System;
@@ -18,5 +19,6 @@ public class Program
     
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
+            .UseServiceProviderFactory(new AutofacServiceProviderFactory())
             .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
 }
